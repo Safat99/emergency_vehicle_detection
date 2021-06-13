@@ -1,0 +1,31 @@
+
+###############################path plan ###########33
+
+$ tree --dirsfirst --filelimit 20
+.
+├── vgg_16_approach
+│   ├── annotations
+│   │   ├── airplane.csv
+│   │   ├── face.csv
+│   │   └── motorcycle.csv
+│   └── images
+│       ├── airplane [800 entries]
+│       ├── face [435 entries]
+│       └── motorcycle [798 entries]
+├── output
+│   ├── plots
+│   │   ├── accs.png
+│   │   └── losses.png
+│   ├── detector.h5
+│   ├── lb.pickle
+│   └── test_paths.txt
+├── pyimagesearch
+│   ├── __init__.py
+│   └── config.py
+├── predict.py
+└── train.py
+9 directories, 12 files
+
+
+
+image = load_img(os.path.join(base_path,'images','cars',str(i) + ".jpg"))

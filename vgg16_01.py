@@ -20,4 +20,4 @@ for file in os.listdir('obj'):
     label = decode_predictions(y_pred, top = 1)
     print(label)
     print() 
- 
+  

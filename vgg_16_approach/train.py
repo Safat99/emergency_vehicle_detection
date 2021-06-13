@@ -10,6 +10,8 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelBinarizer
+from tensorflow.keras.utils import to_categorical
 import matplotlib.pyplot as plt
 from imutils import paths
 import numpy as np
@@ -19,7 +21,7 @@ import pickle
 
 
 print("[INFO} loading dataset...")
-rows = open(config.annots_path).read().strip().split("\n")
+
 
 data = [] #images
 labels = []
@@ -28,7 +30,7 @@ filenames = []
 imagePaths = []
 
 
-cars = pd.read_csv(os.path.join(config.images_path,'train_test_vgg_format.csv'))
+cars = pd.read_csv(os.path.join(config.base_path,'images', 'train_test_vgg_format.csv'))
 
 for i in cars.IMAGE:
 	image = load_img(os.path.join(config.images_path, str(i) + ".jpg"))
@@ -55,6 +57,13 @@ data = np.array(data, dtype="float32") / 255.0
 labels = np.array(labels)
 bboxes = np.array(bboxes, dtype='float32')
 imagePaths = np.array(imagePaths)
+
+lb = LabelBinarizer()
+labels = lb.fit_transform(labels)
+
+if len(lb.classes_) == 2:
+	labels = to_categorical(labels)
+
 
 
 # partition the data into training and testing splits using 90% of
@@ -138,8 +147,8 @@ testTargets = {
 # prediction
 print("[INFO] training model...")
 H = model.fit(
-	trainImages, trainTargets,
-	validation_data=(testImages, testTargets),
+	train_images, trainTargets,
+	validation_data=(test_images, testTargets),
 	batch_size=config.BATCH_SIZE,
 	epochs=config.NUM_EPOCHS,
 	verbose=1)

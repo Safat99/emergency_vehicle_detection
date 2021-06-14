@@ -156,6 +156,13 @@ H = model.fit(
 print("[INFO] saving object detector model...")
 model.save(config.model_path, save_format="h5")
 
+### latelty added for the training history
+print('[INFO] saving training history in history_vgg16 file')
+f = open('training_history_vgg16' , 'wb')
+pickle.dump(H.history, f)
+f.close()
+
+
 
 # serialize the label binarizer to disk
 print("[INFO] saving label binarizer...")

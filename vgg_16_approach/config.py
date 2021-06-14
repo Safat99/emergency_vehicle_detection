@@ -13,6 +13,8 @@ model_path = os.path.join(base_path,base_output, 'detector_vgg16.h5')
 plot_path = os.path.join(base_path, base_output, 'draw.png')
 lb_PATH = os.path.sep.join([base_path, base_output,  "lb.pickle"])
 test_path = os.path.join(base_path, base_output, 'test_path.txt')
+PLOTS_PATH = os.path.sep.join([base_path,base_output, "plots"])
+
 
 #test_paths = os.path.join(base_output, 'test_images.txt')
 

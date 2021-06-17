@@ -158,7 +158,7 @@ model.save(config.model_path, save_format="h5")
 
 ### latelty added for the training history
 print('[INFO] saving training history in history_vgg16 file')
-f = open('training_history_vgg16' , 'wb')
+f = open('training_history_vgg16.pckl' , 'wb')
 pickle.dump(H.history, f)
 f.close()
 

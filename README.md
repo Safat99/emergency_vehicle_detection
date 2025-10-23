@@ -75,6 +75,15 @@ The total loss was computed as a weighted combination of both. Accuracy and loss
 Extensive experiments were conducted on both **VGG16** and **VGG19** architectures to analyze how different normalization techniques and training durations affect performance.  
 The models were evaluated on two outputs: **class label accuracy** and **bounding box accuracy**.
 
+The final output of the model looks like something like this: 
+
+![alt text](image-1.png)
+
+![alt text](image.png)
+
+In the first image (`image-1.png`), we can see the original input image of an emergency vehicle.  
+In the second image (`image.png`), the model has detected the **region of interest (ROI)** and classified it as **“emergency”**, drawing a bounding box around the detected vehicle to highlight it.
+
 ---
 
 ### 🔹 VGG16 Results  
@@ -161,3 +170,5 @@ This project was inspired and guided by several excellent tutorials and resource
 ## Contributors  
 - [@Carbodose](https://github.com/Carbodose)  
 - [@Safat99](https://github.com/Safat99)  
+
+

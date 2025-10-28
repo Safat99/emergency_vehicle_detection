@@ -32,7 +32,7 @@ All coordinates and labels were stored in CSV format for later use during model 
 
 The overall workflow followed in this project is shown below.
 
-![System Flow Diagram](system_flow_diagram.svg)
+![System Flow Diagram](system_flow_diagram.png)
 
 ---
 
